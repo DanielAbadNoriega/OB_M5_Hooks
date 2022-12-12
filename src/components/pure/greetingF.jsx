@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const GreetingF = (props) => {
 
   //Para poder utilizar el estado, importamos useState 
+  //const [variable, método para actualizarlo] = useState(valor inicial)
   const [age, setage] = useState(31);
 
   const birthday = () => {
