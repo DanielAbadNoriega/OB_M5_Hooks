@@ -1,4 +1,6 @@
 /* 
+Ejemplo de us del Hook useState
+
 Crear un componente de tipo función y acceder a su estado 
 privado a través de un hook y, además, poder modificarlo
 */
