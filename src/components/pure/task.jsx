@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 
 const TaskComponent = ({ task }) => {
+  /* Se crea con los [] para que se ejecute una vez por creación */
+  useEffect(() => {
+    console.log(`UseEffect [ TaskComponent ${task.name} ]: Task created.`);
+    return () => {
+      console.log(
+        `UseEffect return [ TaskComponent ${task.name}]: Task is going to unmount...`
+      );
+    };
+  }, [task]);
+
   return (
     <div>
-      <h2>Nombre: { task.name }</h2>
+      <h2>Nombre: {task.name}</h2>
 
-      <h3>Descripción: { task.description }</h3>
+      <h3>Descripción: {task.description}</h3>
 
-      <h4>Level: { task.level }</h4>
+      <h4>Level: {task.level}</h4>
 
-      <h5>This task is: { task.completed ? "COMPLETED" : "PENDING" }</h5>
+      <h5>This task is: {task.completed ? "COMPLETED" : "PENDING"}</h5>
     </div>
   );
 };
