@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 
+//importamos la hoja de stilos de task.scss
+import "../../styles/task.scss"
+
 const TaskComponent = ({ task }) => {
   /* Se crea con los [] para que se ejecute una vez por creación */
   useEffect(() => {
@@ -15,7 +18,7 @@ const TaskComponent = ({ task }) => {
 
   return (
     <div>
-      <h2>Nombre: {task.name}</h2>
+      <h2 className="task-name">Nombre: {task.name}</h2>
 
       <h3>Descripción: {task.description}</h3>
 
