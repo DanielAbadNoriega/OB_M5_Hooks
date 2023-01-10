@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 
 //importamos la hoja de stilos de task.scss
-import "../../styles/task.scss"
+import "../../styles/task.scss";
 
 const TaskComponent = ({ task }) => {
   /* Se crea con los [] para que se ejecute una vez por creación */
@@ -17,7 +17,26 @@ const TaskComponent = ({ task }) => {
   }, [task]);
 
   return (
-    <div>
+    <tr className="fw-normal">
+      <th>
+        {" "}
+        <span className="ms-2">{task.name}</span>
+      </th>
+
+      <td className="align-middle">
+        <span> {task.description}</span>
+      </td>
+      <td className="align-middle">
+        {/* TODO: sustituir por un badge */}
+        <span> {task.level}</span>
+      </td>
+      <td className="align-middle">
+        {/* Sustituir por iconos */}
+        <span> {task.completed}</span>
+      </td>
+    </tr>
+
+    /*     <div>
       <h2 className="task-name">Nombre: {task.name}</h2>
 
       <h3>Descripción: {task.description}</h3>
@@ -25,7 +44,7 @@ const TaskComponent = ({ task }) => {
       <h4>Level: {task.level}</h4>
 
       <h5>This task is: {task.completed ? "COMPLETED" : "PENDING"}</h5>
-    </div>
+    </div> */
   );
 };
 

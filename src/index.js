@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 //añadimos bootstrap a nuestro proyecto, se añade antes de los generales para que 
 //bootstrap no nos los pise y podamos sobreescribir sus estilos
 import "bootstrap/dist/css/bootstrap.css"
-//Aquí van los estilos propios
+//! IMPORTANTE -> Aquí van los estilos propios para que bootstrap no los pise
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
