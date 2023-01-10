@@ -3,13 +3,13 @@ import { LEVELS } from "./levels.enum";
 /* Todo esto se aplicará como prop */
 export class Task {
   name = "";
-  descritpion = "";
+  description = "";
   completed = false;
   level = LEVELS.NORMAL;
 
-  constructor(name, descritpion, completed, level){
+  constructor(name, description, completed, level){
     this.name = name;
-    this.descritpion = descritpion;
+    this.description = description;
     this.completed = completed;
     this.level = level;
   }
