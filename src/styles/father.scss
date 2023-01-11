@@ -1,0 +1,36 @@
+.father-container {
+  min-height: 60vh;
+  background-image: linear-gradient(
+    to right top,
+    #004d7a,
+    #007aa5,
+    #00a7a3,
+    #00ce74,
+    #a8eb12
+  );
+  margin: 20px 20px;
+  box-shadow: 7px 7px 14px #d9d9d9, -7px -7px 14px #ffffff,
+    inset 0 0 14px -1px #d9d9d9;
+  border-radius: 20px;
+  padding: 10px;
+
+  h1 {
+    color: rgb(253, 251, 251);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: rgb(241, 240, 240);
+    margin-bottom: 1rem;
+    span {
+      padding: 5px 10px;
+      color: rgb(246, 158, 246);
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+    }
+  }
+}

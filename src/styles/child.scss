@@ -1,0 +1,47 @@
+.child-container {
+  margin: 0 10px;
+  padding: 20px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  h2 {
+    color: rgb(241, 240, 240);
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: lightblue;
+    margin-bottom: 1rem;
+    span {
+      padding: 5px 10px;
+      color: rgb(40, 251, 40);
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+    }
+  }
+
+  form{
+    input{
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 5px 10px;
+      margin-right: 5px;
+    }
+    button{
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(46, 241, 72, 0.9);
+      color: whitesmoke;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+  }
+}
