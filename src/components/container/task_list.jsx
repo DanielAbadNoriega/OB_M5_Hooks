@@ -35,7 +35,7 @@ const TaskListComponent = () => {
   ]);
 
   const [loading, setLoading] = useState(true);
-  
+
   //Control del ciclo de vida del componente
   useEffect(() => {
     console.log(
@@ -49,9 +49,36 @@ const TaskListComponent = () => {
     };
   }, [tasks]);
 
-  const changeCompleted = (id) => {
-    console.log("TODO: Cambiar el estado de la tarea");
-  };
+  function completeTask(task) {
+    console.log("Complete this Task: ", task);
+    //Localizamos la task correspondiente con el indice
+    const index = tasks.indexOf(task);
+
+    //Traemos temporalmente todas las tareas para luego aplicarlas en el state
+    const tempTasks = [...tasks];
+
+    //Cambiamos la propiedad "completed"
+    tempTasks[index].completed = !tempTasks[index].completed;
+
+    //We update the state of the component with the new list of tasks (tempTasks) and it will update the
+    //iteration of the tasks in order to show the task updated
+    setTasks(tempTasks);
+  }
+
+  function removeTask(task) {
+    console.log("Delete Task: ", task);
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks.splice(index, 1);
+    setTasks(tempTasks);
+  }
+
+  function addTask(task){
+    console.log("Add Task: ", task);
+    const tempTasks = [...tasks];
+    tempTasks.push(task);
+    setTasks(tempTasks);
+  }
 
   return (
     <div>
@@ -81,14 +108,19 @@ const TaskListComponent = () => {
                   dará error si no se incluye, aplicamos el index como KEY
                 */}
                 {tasks.map((task, index) => (
-                  <TaskComponent key={index} task={task}></TaskComponent>
+                  <TaskComponent
+                    key={index}
+                    task={task}
+                    complete={completeTask}
+                    remove={removeTask}
+                  ></TaskComponent>
                 ))}
               </tbody>
             </table>
           </div>
-          <TaskForm></TaskForm>
         </div>
       </div>
+          <TaskForm add={addTask}></TaskForm>
     </div>
   );
 };

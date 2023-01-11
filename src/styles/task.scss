@@ -6,3 +6,15 @@ h1 {
   font-weight: bold;
   color: cadetblue;
 }
+
+.task-container{
+  .bi-toggle2-on:hover{
+    cursor: pointer;
+  }
+  .bi-toggle2-off:hover{
+    cursor: pointer;
+  }
+  .bi-trash{
+    cursor: pointer;
+  }
+}

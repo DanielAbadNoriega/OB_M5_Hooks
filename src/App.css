@@ -32,6 +32,14 @@ h1 {
   color: tomato;
 }
 
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 40px 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
