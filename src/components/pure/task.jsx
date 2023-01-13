@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+
+//Models
 import { Task } from "../../models/task.class";
+import { LEVELS } from "../../models/levels.enum";
 
 //importamos la hoja de stilos de task.scss
 import "../../styles/task.scss";
-import { LEVELS } from "../../models/levels.enum";
 
 const TaskComponent = ({ task, complete, remove }) => {
   /* Se crea con los [] para que se ejecute una vez por creación */
@@ -70,7 +72,7 @@ const TaskComponent = ({ task, complete, remove }) => {
   }
 
   return (
-    <tr className="fw-normal task-container">
+    <tr className={`task-container ${task.completed ? "task-completed" : "task-pending"} `}>
       <th>
         {" "}
         <span className="ms-2">{task.name}</span>

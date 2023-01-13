@@ -4,7 +4,7 @@ import { Task } from "../../models/task.class";
 import TaskComponent from "../pure/task";
 
 //importamos los estilos de task.scss
-import "../../styles/task.scss";
+import "../../styles/taskList.scss";
 import TaskForm from "../pure/forms/taskForm";
 
 const TaskListComponent = () => {
@@ -27,7 +27,7 @@ const TaskListComponent = () => {
     LEVELS.BLOCKING
   );
 
-  //Estado del componente
+  //Estados del componente
   const [tasks, setTasks] = useState([
     defaultTask1,
     defaultTask2,
@@ -41,7 +41,10 @@ const TaskListComponent = () => {
     console.log(
       "UseEffect [ TaskListComponent ]: Task State has been modified."
     );
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
     return () => {
       console.log(
         "UseEffect return [ TaskListComponent ]: TaskList is going to unmount..."
@@ -73,11 +76,52 @@ const TaskListComponent = () => {
     setTasks(tempTasks);
   }
 
-  function addTask(task){
+  function addTask(task) {
     console.log("Add Task: ", task);
     const tempTasks = [...tasks];
     tempTasks.push(task);
     setTasks(tempTasks);
+  }
+
+  const TableTasksComponent = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* ! Important => cuando se itera se necesita una KEY
+                  dará error si no se incluye, aplicamos el index como KEY
+                */}
+          {tasks.map((task, index) => (
+            <TaskComponent
+              key={index}
+              task={task}
+              complete={completeTask}
+              remove={removeTask}
+            ></TaskComponent>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
+  let tableTasks;
+
+  if (tasks.length > 0) {
+    tableTasks = <TableTasksComponent></TableTasksComponent>;
+  } else {
+    tableTasks = (
+      <div>
+        <h3> There are no tasks to show </h3>
+        <h4>Please, create one</h4>
+      </div>
+    );
   }
 
   return (
@@ -94,33 +138,12 @@ const TaskListComponent = () => {
             data-mdb-perfect-scrollbar="true"
             style={{ position: "relative", height: "400px" }}
           >
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Title</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Priority</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* ! Important => cuando se itera se necesita una KEY
-                  dará error si no se incluye, aplicamos el index como KEY
-                */}
-                {tasks.map((task, index) => (
-                  <TaskComponent
-                    key={index}
-                    task={task}
-                    complete={completeTask}
-                    remove={removeTask}
-                  ></TaskComponent>
-                ))}
-              </tbody>
-            </table>
+            {/* Add loading spinner */}
+            {loading ? <h2 className="loading">Loading Tasks...</h2> : tableTasks}
           </div>
         </div>
       </div>
-          <TaskForm add={addTask}></TaskForm>
+      <TaskForm add={addTask} nLength={tasks.length}></TaskForm>
     </div>
   );
 };

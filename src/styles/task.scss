@@ -18,3 +18,15 @@ h1 {
     cursor: pointer;
   }
 }
+
+.task-completed{
+  color: lightgray;
+  text-decoration: line-through;
+  font-weight: bold;
+
+}
+
+.task-pending{
+  color: tomato;
+  font-weight: bold;
+}

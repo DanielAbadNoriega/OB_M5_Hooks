@@ -30,6 +30,7 @@ function App() {
       {/* </header> */}
       <TaskListComponent></TaskListComponent>
       {/* <Father></Father> */}
+      {/* Ejemplos de Formik y Yup */}
     </div>
   );
 }
