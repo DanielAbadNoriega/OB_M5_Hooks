@@ -1,12 +1,13 @@
 //import logo from "./logo.svg";
 import "./App.css";
+import RegisterFormik from "./components/pure/forms/registerFormik";
 //import Father from "./components/container/father";
 //import Ejemplo4 from "./hooks/Ejemplo4";
 //import MiComponenteConContexto from "./hooks/Ejemplo3";
 //import Greeting from './components/pure/greeting';
 //import GreetingF from './components/pure/greetingF';
 //import TaskListComponent from "./components/container/task_list";
-import LoginFormik from "./components/pure/forms/loginFormik";
+//import LoginFormik from "./components/pure/forms/loginFormik";
 //import GreetingStyled from "./components/pure/greetingStyled";
 //import Ejemplo1 from './hooks/Ejemplo1';
 //import Ejemplo2 from './hooks/Ejemplo2';
@@ -40,7 +41,8 @@ function App() {
         {/* <Father></Father> */}
 
       {/* Ejemplos de Formik y Yup */}
-        <LoginFormik></LoginFormik>
+        {/* <LoginFormik></LoginFormik> */}
+        <RegisterFormik></RegisterFormik>
 
       {/* PROYECTO FINAL */}
         {/* <TaskListComponent></TaskListComponent> */}
