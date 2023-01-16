@@ -46,7 +46,8 @@ const RegisterFormik = () => {
   });
 
   const submitForm = (values) => {
-    alert("[RegisterFormik] Register user");
+    alert("[RegisterFormik] Register user\n"+JSON.stringify(values));
+    console.log(values);
   };
 
   return (
@@ -60,6 +61,7 @@ const RegisterFormik = () => {
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 1000));
           alert(JSON.stringify(values, null, 2));
+          submitForm(values);
         }}
       >
         {({
@@ -72,11 +74,11 @@ const RegisterFormik = () => {
         }) => (
           <Form>
 
-            {/* PASSWORD */}
+            {/* USERNAME */}
             <label htmlFor="username">Username</label>
             <Field
               id="username"
-              type="username"
+              type="text"
               name="username"
               placeholder="Username"
             />
