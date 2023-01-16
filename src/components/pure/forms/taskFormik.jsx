@@ -18,16 +18,6 @@ const TaskFormik = ({ add, nLength }) => {
     description: Yup.string()
       .min(6, "The task description is too short.")
       .required("The task description is required."),
-    level: Yup.string()
-      .oneOf(
-        [LEVELS.NORMAL, LEVELS.URGENT, LEVELS.BLOCKING],
-        "You must select a task level: normal, urgent or blocking."
-      )
-      .required("You must select one task level."),
-    completed: Yup.string().oneOf(
-      [true, false],
-      "You must select completed / uncompleted task"
-    ),
   });
 
   //Generamos los valores iniciales del formulario
@@ -40,7 +30,12 @@ const TaskFormik = ({ add, nLength }) => {
 
   //TODO the function to create a new Task
   function addTask(values) {
-    let newTask = new Task(values.name, values.description, values.level, false);
+    let newTask = new Task(
+      values.name,
+      values.description,
+      values.level,
+      false
+    );
     add(newTask);
   }
 
@@ -54,7 +49,6 @@ const TaskFormik = ({ add, nLength }) => {
         validationSchema={taskSchema}
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 1000));
-          alert(JSON.stringify(values, null, 2));
           addTask(values);
         }}
       >

@@ -1,13 +1,13 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 //Models
-import { User } from "../../../models/user.class";
+//import { User } from "../../../models/user.class";
 import { ROLES } from "../../../models/roles.enum";
 
 const RegisterFormik = () => {
-  let user = new User();
+  //let user = new User();
 
   const initialValues = {
     username: "",
