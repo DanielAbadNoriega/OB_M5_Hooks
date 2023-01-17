@@ -7,7 +7,6 @@ import TaskComponent from "../pure/task";
 import "../../styles/taskList.scss";
 //import TaskForm from "../pure/forms/taskForm";
 import TaskFormik from "../pure/forms/taskFormik";
-import TaskFormikRes from "../pure/forms/taskFormikRes";
 
 const TaskListComponent = () => {
   const defaultTask1 = new Task(
@@ -147,7 +146,6 @@ const TaskListComponent = () => {
       </div>
       {/* <TaskForm add={addTask} nLength={tasks.length}></TaskForm> */}
       <TaskFormik add={addTask} nLength={tasks.length}></TaskFormik>
-      <TaskFormikRes></TaskFormikRes>
     </div>
   );
 };
