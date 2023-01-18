@@ -4,8 +4,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  NavLink,
   Link,
-  useParams,
 } from "react-router-dom";
 
 import HomePage from "./pages/home/HomePage";
@@ -15,12 +15,11 @@ import ProfilePage from "./pages/profile/ProfilePage";
 import TasksPage from "./pages/tasks/TasksPage";
 import TaskDetailPage from "./pages/tasks/TaskDetailPage";
 import LoginPage from "./pages/auth/LoginPage";
+import StatePage from "./pages/home/StatePage";
 //import "bootstrap/js/src/collapse.js";
 
 function AppRouter() {
   const [isLogged, setisLogged] = useState(false);
-
-  let idParam = useParams();
 
   /*   useEffect(() => {
     if (localStorage.getItem("credentials"))
@@ -40,6 +39,19 @@ function AppRouter() {
     },
   ];
 
+  /* STYLES */
+
+  let activeStyle = {
+    width: "200px",
+    padding: "5px 10px",
+    fontWeight: "bold",
+  };
+
+  let defaultLink = {
+    width: "200px",
+    padding: "5px 10px",
+  };
+
   return (
     <Router>
       <div>
@@ -57,78 +69,87 @@ function AppRouter() {
           </button>
           <div className="collapse navbar-collapse" id="navbar">
             {/* HOME */}
-            <Link
+            <NavLink
               to="/"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               HOME
-            </Link>
+            </NavLink>
+
+            {/* STATE */}
+            <NavLink
+              to="/state"
+              className="nav-link text-left"
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
+            >
+              STATE PROPS
+            </NavLink>
 
             {/* LOGIN */}
             {isLogged ? (
               ""
             ) : (
-              <Link
+              <NavLink
                 to="/login"
                 className="nav-link text-left"
-                style={{ width: "200px", padding: "5px 10px" }}
+                style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
               >
                 LOGIN
-              </Link>
+              </NavLink>
             )}
 
             {/* PROFILE */}
-            <Link
+            <NavLink
               to="/profile"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               PROFILE
-            </Link>
+            </NavLink>
 
             {/* TASKS */}
-            <Link
+            <NavLink
               to="/tasks"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               TASKS
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/tasks/1"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               TASK 1
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/tasks/2"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               TASK 2
-            </Link>
+            </NavLink>
 
             {/* ABOUT */}
-            <Link
+            <NavLink
               to="/about"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               ABOUT
-            </Link>
+            </NavLink>
 
             {/* 404 */}
-            <Link
+            <NavLink
               to="/any404"
               className="nav-link text-left"
-              style={{ width: "200px", padding: "5px 10px" }}
+              style={({ isActive }) => (isActive ? activeStyle : defaultLink)}
             >
               404 - NOT FOUND
-            </Link>
+            </NavLink>
           </div>
         </aside>
         <main>
@@ -157,6 +178,9 @@ function AppRouter() {
               path="/tasks/:id"
               element={<TaskDetailPage tasks={tasksList} />}
             ></Route>
+
+            {/* STATE */}
+            <Route path="/state" element={<StatePage />} />
 
             {/* 404 - Page No Found */}
             <Route path="*" element={<NotFoundPage />} />

@@ -11,11 +11,31 @@ const HomePage = () => {
     navigate(path);
   };
 
+  const goToProps = (path) => {
+    //Introducimos en el path los query params que necesitemos
+    path += "?online=true&user=Daniel";
+    //Introducimos en el state las props que queramos 
+    navigate(path, {
+      state: {
+        online: true,
+      },
+    });
+  };
+
   return (
-    <div style={{display:"flex", flexDirection: "column"}}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <h1 className="text-center">HOME</h1>
-      <button className="btn btn-primary mx-auto" onClick={() => goTo("/profile")}>
+      <button
+        className="btn btn-primary mx-auto my-2 "
+        onClick={() => goTo("/profile")}
+      >
         Go to Profile{" "}
+      </button>
+      <button
+        className="btn btn-success mx-auto my-2"
+        onClick={() => goToProps("/state")}
+      >
+        Go to State{" "}
       </button>
     </div>
   );
