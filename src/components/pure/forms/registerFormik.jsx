@@ -46,13 +46,19 @@ const RegisterFormik = () => {
   });
 
   const submitForm = (values) => {
-    alert("[RegisterFormik] Register user\n"+JSON.stringify(values));
+    alert("[RegisterFormik] Register user\n" + JSON.stringify(values));
     console.log(values);
+  };
+
+  /* STYLES */
+  const buttonStyle = {
+    margin: "2px auto",
+    width: "150px",
   };
 
   return (
     <div>
-      <h4>Register Formik</h4>
+      <h4 className="text-center m-2">Register Formik</h4>
       <Formik
         initialValues={initialValues}
         // *** Yup Validation Schema ***
@@ -72,15 +78,17 @@ const RegisterFormik = () => {
           handleChange,
           handleBlur,
         }) => (
-          <Form>
-
+          <Form className="d-flex flex-column flex-lg-column justify-content-center align-items-center gap-2">
             {/* USERNAME */}
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" className="form-label">
+              Username
+            </label>
             <Field
               id="username"
               type="text"
               name="username"
               placeholder="Username"
+              className="form-control form-control-lg"
             />
 
             {/* USERNAME ERRORS */}
@@ -90,16 +98,23 @@ const RegisterFormik = () => {
               //</div>
 
               //Con component="div" el error message estará imbuido en un div
-              <ErrorMessage component="div" name="username" />
+              <ErrorMessage
+                className="text-danger  fw-bold "
+                component="div"
+                name="username"
+              />
             )}
 
             {/* EMAIL */}
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <Field
               id="email"
               type="email"
               name="email"
               placeholder="example@email.com"
+              className="form-control form-control-lg"
             />
 
             {/* EMAIL ERRORS */}
@@ -109,7 +124,11 @@ const RegisterFormik = () => {
               //</div>
 
               //Con component="div" el error message estará imbuido en un div
-              <ErrorMessage component="div" name="email" />
+              <ErrorMessage
+                className="text-danger  fw-bold "
+                component="div"
+                name="email"
+              />
             )}
 
             {/* ROLE */}
@@ -120,13 +139,16 @@ const RegisterFormik = () => {
             </Field> */}
 
             {/* PASSWORD */}
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <Field
               id="password"
               name="password"
               placeholder="password"
               type="password"
               autoComplete="on"
+              className="form-control form-control-lg"
             />
 
             {/* PASSWORD ERRORS */}
@@ -136,17 +158,24 @@ const RegisterFormik = () => {
               //</div>
 
               //Con component="div" el error message estará imbuido en un div
-              <ErrorMessage component="div" name="password" />
+              <ErrorMessage
+                className="text-danger  fw-bold "
+                component="div"
+                name="password"
+              />
             )}
 
             {/* CONFIRM PASSWORD */}
-            <label htmlFor="confirm">Confirm your password</label>
+            <label htmlFor="confirm" className="form-label">
+              Confirm your password
+            </label>
             <Field
               id="confirm"
               name="confirm"
               placeholder="Confirm your password"
               type="password"
               autoComplete="on"
+              className="form-control form-control-lg"
             />
 
             {/* CONFIRM PASSWORD ERRORS */}
@@ -156,9 +185,19 @@ const RegisterFormik = () => {
               //</div>
 
               //Con component="div" el error message estará imbuido en un div
-              <ErrorMessage component="div" name="confirm" />
+              <ErrorMessage
+                className="text-danger fw-bold"
+                component="div"
+                name="confirm"
+              />
             )}
-            <button type="submit">Register account</button>
+            <button
+              type="submit"
+              className="btn btn-success btn-lg"
+              style={buttonStyle}
+            >
+              Register
+            </button>
             {isSubmitting ? <p>Sending your credentials...</p> : null}
           </Form>
         )}

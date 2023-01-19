@@ -18,9 +18,16 @@ const LoginFormik = () => {
 
   const navigate = useNavigate();
 
+  /* STYLES */
+  const buttonStyle = {
+    margin: "2px auto",
+    width: "150px",
+  };
+
   return (
     <div>
-      <h2>Login Formik</h2>
+      <h2 className="text-center">Login Formik</h2>
+      <hr></hr>
       <Formik
         // *** Initial values that the form will take
         initialValues={initialCredentials}
@@ -45,9 +52,10 @@ const LoginFormik = () => {
           handleChange,
           handleBlur,
         }) => (
-          <Form>
-            <label htmlFor="email">Email</label>
+          <Form className="d-flex flex-column justify-content-center align-items-center gap-2">
+            <label className="form-label form-label-lg" htmlFor="email">Email</label>
             <Field
+              className="form-control form-control-lg"
               id="email"
               type="email"
               name="email"
@@ -63,11 +71,12 @@ const LoginFormik = () => {
               //</div>
 
               //Con component="div" el error message estará imbuido en un div
-              <ErrorMessage component="div" name="email" />
+              <ErrorMessage className="text-danger fw-bold" component="div" name="email" />
             )}
 
-            <label htmlFor="password">Password</label>
+            <label className="form-label form-label-lg" htmlFor="password">Password</label>
             <Field
+              className="form-control form-control-lg"
               id="password"
               type="password"
               name="password"
@@ -83,10 +92,16 @@ const LoginFormik = () => {
               //</div>
 
               //Con component="div" el error message estará imbuido en un div
-              <ErrorMessage component="div" name="password" />
+              <ErrorMessage className="text-danger fw-bold" component="div" name="password" />
             )}
 
-            <button type="submit">Login</button>
+            <button
+              type="submit"
+              className="btn btn-primary btn-lg"
+              style={buttonStyle}
+            >
+              Login
+            </button>
             {isSubmitting ? <p>Login your credentials...</p> : null}
           </Form>
         )}

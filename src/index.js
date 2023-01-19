@@ -10,13 +10,15 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./index.css";
 //import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import AppRouter from "./AppRouter";
+//import AppRouter from "./AppRouter";
+import AppRouterFinal from "./AppRouterFinal";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <AppRouter></AppRouter>
+    {/* <AppRouter></AppRouter> */}
+    <AppRouterFinal></AppRouterFinal>
   </React.StrictMode>
 );
 
