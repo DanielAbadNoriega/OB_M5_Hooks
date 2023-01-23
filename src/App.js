@@ -1,5 +1,6 @@
 //import logo from "./logo.svg";
 import "./App.css";
+import FetchExample from "./components/pure/FetchExample";
 //import RegisterFormik from "./components/pure/forms/registerFormik";
 //import TaskFormik from "./components/pure/forms/taskFormik";
 //import Father from "./components/container/father";
@@ -7,7 +8,8 @@ import "./App.css";
 //import MiComponenteConContexto from "./hooks/Ejemplo3";
 //import Greeting from './components/pure/greeting';
 //import GreetingF from './components/pure/greetingF';
-import TaskListComponent from "./components/container/task_list";
+//import TaskListComponent from "./components/container/task_list";
+//import ObservableExample from "./components/pure/ObservableExample";
 //import LoginFormik from "./components/pure/forms/loginFormik";
 //import GreetingStyled from "./components/pure/greetingStyled";
 //import Ejemplo1 from './hooks/Ejemplo1';
@@ -41,13 +43,17 @@ function App() {
       {/* GESTION DE EVENTOS */}
       {/* <Father></Father> */}
 
-      {/* Ejemplos de Formik y Yup */}
+      {/* EJEMPLOS FORMIK & YUP */}
       {/* <LoginFormik></LoginFormik> */}
       {/* <RegisterFormik></RegisterFormik> */}
       {/* <TaskFormik></TaskFormik> */}
 
+      {/* PROCESOS ASÍNCRONOS */}
+      {/* <ObservableExample></ObservableExample> */}
+      <FetchExample></FetchExample>
+
       {/* PROYECTO FINAL */}
-      <TaskListComponent></TaskListComponent>
+      {/* <TaskListComponent></TaskListComponent> */}
     </div>
   );
 }

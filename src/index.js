@@ -8,17 +8,17 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 //! IMPORTANTE -> Aquí van los estilos propios para que bootstrap no los pise
 import "./index.css";
-//import App from "./App";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 //import AppRouter from "./AppRouter";
-import AppRouterFinal from "./AppRouterFinal";
+//import AppRouterFinal from "./AppRouterFinal";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
     {/* <AppRouter></AppRouter> */}
-    <AppRouterFinal></AppRouterFinal>
+    {/* <AppRouterFinal></AppRouterFinal> */}
   </React.StrictMode>
 );
 
