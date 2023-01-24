@@ -3,6 +3,7 @@ import {
   getAllPagedUsers,
   getAllUsers,
   getUserDetails,
+  login,
 } from "../../services/fecthService";
 
 const FetchExample = () => {
@@ -122,14 +123,61 @@ const FetchExample = () => {
       })
       .finally(() => {
         console.log(
-          "[ FetchExample - obtainPagedUsers ] Ended obtaining users: "
+          "[ FetchExample - obtainUserDetails ] Ended obtaining users: "
         );
         console.table(selectedUser);
       });
   };
 
+  /* LOGIN */
+  const authUser = () => {
+    let data = {
+      email: "eve.holt@reqres.in",
+      password: "cityslicka",
+    };
+    login(data)
+      .then((res) => {
+        if (res.status === 200 && res.ok) {
+          res
+            .json()
+            .then((body) => {
+              console.log(
+                "[ FetchExample - authUser ] (.then) Authentication token: ",
+                body.token
+              );
+              setSelectedUser(body.token);
+              console.log(`TOKEN: ${body.token}`);
+              sessionStorage.setItem("token", body.token);
+            })
+            .catch((error) =>
+              console.log(
+                `[ FetchExample - authUser ] Error authenticating user "${data.email}": `,
+                error.message
+              )
+            );
+        }
+      })
+      .catch((error) => {
+        alert(
+          "[ FetchExample - authUser ] Error while receiving the users details: ",
+          error.message
+        );
+      })
+      .finally(() => {
+        console.log("[ FetchExample - authUser ] Ended authentication user.");
+        console.table(selectedUser);
+      });
+  };
+
   return (
-    <div className="container container-lg">
+    <div className="container container-lg text-center">
+      {/* Button to simulate login */}
+      <button
+        className="btn btn-success btn-lg-success mb-2"
+        onClick={() => authUser()}
+      >
+        Login
+      </button>
       <h2> Users: </h2>
       <div className="container text-start">
         {users.map((user, index) => (
@@ -165,11 +213,11 @@ const FetchExample = () => {
       </button>
 
       {/* USER CARD */}
-      {selectedUser && (
+      {selectedUser != null ? (
         <div className="card mt-2">
           <img
             src={selectedUser.avatar}
-            class="card-img-top"
+            className="card-img-top"
             alt={selectedUser.first_name}
           ></img>
           <div className="card-body">
@@ -188,6 +236,8 @@ const FetchExample = () => {
             </p>
           </div>
         </div>
+      ) : (
+        <h2>Click on an User to see its details</h2>
       )}
     </div>
   );
