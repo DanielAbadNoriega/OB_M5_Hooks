@@ -1,6 +1,7 @@
 //import logo from "./logo.svg";
 import "./App.css";
-import FetchExample from "./components/pure/FetchExample";
+import AxiosExample from "./components/pure/AxiosExample";
+//import FetchExample from "./components/pure/FetchExample";
 //import RegisterFormik from "./components/pure/forms/registerFormik";
 //import TaskFormik from "./components/pure/forms/taskFormik";
 //import Father from "./components/container/father";
@@ -50,7 +51,8 @@ function App() {
 
       {/* PROCESOS ASÍNCRONOS */}
       {/* <ObservableExample></ObservableExample> */}
-      <FetchExample></FetchExample>
+      {/* <FetchExample></FetchExample> */}
+      <AxiosExample></AxiosExample>
 
       {/* PROYECTO FINAL */}
       {/* <TaskListComponent></TaskListComponent> */}

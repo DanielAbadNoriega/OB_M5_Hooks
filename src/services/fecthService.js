@@ -20,10 +20,6 @@ export const getUserDetails = async (id) => {
 };
 
 export const login = async (data) => {
-  /* let data = {
-    email: "eve.holt@reqres.in",
-    password: "cityslicka",
-  }; */
 
   let response = await fetch(`https://reqres.in/api/login`, {
     method: "POST",
@@ -33,7 +29,7 @@ export const login = async (data) => {
     headers: {
       "Content-type": "application/json;charset=UTF-8",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data), //IMPORTANT: do JSON.stringify to the data
   });
 
   console.log("[ login ] Response: ", response);

@@ -223,15 +223,15 @@ const FetchExample = () => {
           <div className="card-body">
             <h3 className="card-title"> User details</h3>
             <hr></hr>
-            <p className="cart-text">
+            <p className="card-text">
               <span className="fw-bold">Name: </span>
               {selectedUser.first_name}
             </p>
-            <p className="cart-text">
+            <p className="card-text">
               <span className="fw-bold">Last Name:</span>{" "}
               {selectedUser.last_name}
             </p>
-            <p className="cart-text">
+            <p className="card-text">
               <span className="fw-bold">Email: </span> {selectedUser.email}
             </p>
           </div>
