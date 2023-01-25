@@ -1,6 +1,7 @@
 //import logo from "./logo.svg";
 import "./App.css";
-import AxiosExample from "./components/pure/AxiosExample";
+import AxiosCRUDExample from "./components/pure/AxiosCRUDExample";
+//import AxiosExample from "./components/pure/AxiosExample";
 //import FetchExample from "./components/pure/FetchExample";
 //import RegisterFormik from "./components/pure/forms/registerFormik";
 //import TaskFormik from "./components/pure/forms/taskFormik";
@@ -52,7 +53,8 @@ function App() {
       {/* PROCESOS ASÍNCRONOS */}
       {/* <ObservableExample></ObservableExample> */}
       {/* <FetchExample></FetchExample> */}
-      <AxiosExample></AxiosExample>
+      {/* <AxiosExample></AxiosExample> */}
+      <AxiosCRUDExample></AxiosCRUDExample>
 
       {/* PROYECTO FINAL */}
       {/* <TaskListComponent></TaskListComponent> */}
