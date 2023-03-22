@@ -14,9 +14,12 @@ Pasos para convertir una app en una Progressive Web App
 
 > ### Prev:
 >
-> - **npm run build:** realizamos el build del proyecto.
-> - **npm i -g serve:** instalamos el servidor para poder ejecutar el proyecto construido (builded).
-> - **serve -s build -l 3002:** ejecutamos el servidor con la build en el puerto especificado (3002).
+> - Realizamos el build del proyecto.
+>   > `npm run build`
+> - Instalamos el servidor para poder ejecutar el proyecto construido (builded).
+>   > `npm i -g serve`
+> - Ejecutamos el servidor con la build en el puerto especificado (3002).
+>   > `serve -s build -l 3002`
 
 1.  **Package.json ->** Instalar todas las dependencias de Workbox
 
@@ -37,3 +40,24 @@ Pasos para convertir una app en una Progressive Web App
 
 2.  Crear los archivos relacionados con el **service worker** (service-worker.js + serviceWorkerRegistration.js).
 3.  **Importamos** el serviceWorker en nuestro **index.js**.
+
+### 3. **Gneración de Notificaciones push**
+
+1. Opciones de generación de las notificaciones:
+   - Title
+   - Body
+   - Direction
+   - Image
+   - Icon
+   - ...
+2. Instalamos **web push** en **global** y generamos las **vapid keys**
+   > `npm i -G web push`
+   >
+   > `web-push generate-vapid-keys [--json]`
+3. Guardamos las keys en el **ServiceWorkerRegistration.js**
+4. Modificamos **register()** en el **ServiceWorkerRegistration.js**
+5. Probamos que se puedan habilitar los permisos -> los habilitamos.
+6. Crearemos la primera notificación push automática, cada vez que haya una versión disponible:
+   > ```
+   > self.registration.showNotification(title, {body})
+   > ```

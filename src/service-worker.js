@@ -72,8 +72,11 @@ self.addEventListener("message", (event) => {
 
 // Any other custom service worker logic can go here.
 // Our Custom Code
-const version = "app-compra-v5";
+const version = "PWA version 1.0";
 
+/**
+ * * when new service worker is installed, this event listener will be triggered.
+ */
 self.addEventListener("install", (event) => {
   console.log(`[service worker ] Installing version: ${version}`);
 });
