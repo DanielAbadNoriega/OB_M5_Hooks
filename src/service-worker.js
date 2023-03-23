@@ -72,15 +72,20 @@ self.addEventListener("message", (event) => {
 
 // Any other custom service worker logic can go here.
 // Our Custom Code
-const version = "PWA version 1.0";
+const version = "PWA version 2.0";
 
 /**
  * * when new service worker is installed, this event listener will be triggered.
  */
 self.addEventListener("install", (event) => {
   console.log(`[service worker ] Installing version: ${version}`);
+  self.registration.showNotification("New update from you app.", {
+    body: "Please install now.",
+  });
 });
 
 self.addEventListener("activate", (event) => {
   console.log(`[service worker ] Activated version: ${version}`);
 });
+
+// Prueba del web-push

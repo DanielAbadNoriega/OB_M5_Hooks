@@ -56,6 +56,7 @@ Pasos para convertir una app en una Progressive Web App
    > `web-push generate-vapid-keys [--json]`
 3. Guardamos las keys en el **ServiceWorkerRegistration.js**
 4. Modificamos **register()** en el **ServiceWorkerRegistration.js**
+   -  En la promesa devuelta por la función **registerValidSW()**
 5. Probamos que se puedan habilitar los permisos -> los habilitamos.
 6. Crearemos la primera notificación push automática, cada vez que haya una versión disponible:
    > ```
